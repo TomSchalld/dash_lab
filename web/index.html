@@ -20,7 +20,7 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-
+        <script src="js/dash/dash.all.min_1.js"></script>
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <script src="js/jquery.js" ></script>
     </head>
@@ -47,7 +47,12 @@
     <div class="jumbotron">
       <div class="container">
         <!-- Video element -->
-        <video id="dashVideo" width="800" height="480" controls>No video available</video>
+        <video width="800" height="600" class="dashjs-player" autoplay preload="none" controls>
+
+        <!--<source src="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd" type="application/dash+xml"/>-->
+        <source src="./vid/verdun.mpd" type="application/dash+xml"/>
+     </video>
+        
          
       </div>
     </div>
@@ -61,13 +66,13 @@
       <footer>
         <p>&copy; Thomas Schalldach 2016</p>
       </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+    </div> <!-- /container -->        <script src="js/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>
-        <script src="js/videofunction.js"></script>
+        <!--<script src="js/videofunction.js"></script>-->
        
     </body>
 </html>
