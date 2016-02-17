@@ -20,7 +20,7 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/dash/dash.all.min_1.js"></script>
+        <script src="dash.js-2.0.0/dist/dash.all.min.js"></script>
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <script src="js/jquery.js" ></script>
     </head>
@@ -73,7 +73,7 @@
         <script>
             (function () {
                 //var url = "http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd";
-                var url = "http://localhost:8080/Dash/vid/verdunLL.mpd";
+                var url = "http://localhost:8080/Dash/vid/verdunDashed_dash.mpd";
                 var player = dashjs.MediaPlayer().create();
                 player.initialize(document.querySelector("#videoPlayer"), url, true);
             })();
