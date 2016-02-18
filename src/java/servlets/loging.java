@@ -7,6 +7,12 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.time.ZonedDateTime;
+import java.util.Date;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,19 +37,19 @@ public class loging extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet loging</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet loging at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String filename = "/logs/log.html";
+        ServletContext context = this.getServletContext();
+        String pathname = context.getRealPath(filename);
+        ZonedDateTime zdt = ZonedDateTime.now();
+        java.util.Date date = java.util.Date.from(zdt.toInstant());
+        String data = date + " " + request.getParameter("event");
+        System.out.println("processRequest!!!!!!!!!!!!!!!!! " + data);
+        try {
+            Files.write(Paths.get(pathname), data.getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
